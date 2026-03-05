@@ -54,7 +54,7 @@ Status: Budget Compliant (Savings: $515,874.50)
 Allocation Summary:
 - FAC_001 (Medical): 100% supplied by WH_NORTH
 - FAC_002 (Engineering): 100% supplied by WH_SOUTH
-... [truncated for brevity]S
+... [truncated for brevity]```
 
 ## 🚀 Advanced Insights: Sensitivity & Risk Analysis
 
