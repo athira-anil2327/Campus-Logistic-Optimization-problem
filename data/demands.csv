@@ -1,0 +1,7 @@
+facility_id,facility_name,daily_demand
+MED_CENTER,Campus_Hospital,80
+ENG_BUILDING,Engineering_Complex,30
+SCIENCE_HALL,Science_Lab,32
+DORM_A,North_Res,52
+DORM_B,South_Res,48
+LIBRARY,Main_Library,28

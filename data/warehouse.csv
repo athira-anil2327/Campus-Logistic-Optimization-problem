@@ -1,0 +1,4 @@
+warehouse_id,name,capacity,construction_cost,daily_op_cost
+WH_NORTH,North_Hub,400,300000,800
+WH_SOUTH,South_Hub,350,280000,700
+WH_EAST,East_Gate,450,320000,900

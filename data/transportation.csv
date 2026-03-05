@@ -1,0 +1,6 @@
+from_warehouse,to_facility,cost_per_unit
+WH_NORTH,MED_CENTER,3.5
+WH_NORTH,ENG_BUILDING,3.8
+WH_SOUTH,SCIENCE_HALL,3.4
+WH_SOUTH,DORM_B,3.6
+... (add more pairs)
