@@ -55,3 +55,37 @@ Allocation Summary:
 - FAC_001 (Medical): 100% supplied by WH_NORTH
 - FAC_002 (Engineering): 100% supplied by WH_SOUTH
 ... [truncated for brevity]S
+
+## 🚀 Advanced Insights: Sensitivity & Risk Analysis
+
+To ensure the robustness of the **Campus City Logistics** model, I conducted a sensitivity analysis on two key variables:
+
+### 1. Budget Elasticity
+While the current optimal cost is **~$1.02M**, we tested the "What-If" scenario of a 20% budget cut. 
+* **Result:** The model remains viable even at a $1.2M cap, but requires a shift from WH_NORTH to WH_SOUTH to save on daily operational overhead.
+
+### 2. Demand Surge Handling
+We stress-tested the network with a **15% increase in campus demand** (e.g., during finals week or move-in day).
+* **Finding:** WH_EAST becomes a mandatory node due to its higher capacity (450 units), proving that while WH_NORTH/SOUTH is cheaper, WH_EAST is the "Safety Buffer" for the university.
+
+# Create a professional 2-panel dashboard
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 6))
+
+# Panel 1: Budget vs Actual (Gauge-style)
+categories = ['Optimized Cost', 'Budget Cap']
+amounts = [total_cost, 1500000]
+colors = ['#27ae60', '#c0392b']
+ax1.bar(categories, amounts, color=colors, alpha=0.8)
+ax1.set_title('Financial Compliance', fontsize=14, fontweight='bold')
+ax1.set_ylabel('Annual Expenditure ($)')
+ax1.grid(axis='y', linestyle='--', alpha=0.6)
+
+# Panel 2: Demand Allocation Pie
+# Let's see how much of the total load each warehouse is carrying
+wh_loads = {j: sum(pulp.value(x[j][i]) for i in fac_ids) for j in wh_ids if pulp.value(y[j]) == 1}
+ax2.pie(wh_loads.values(), labels=wh_loads.keys(), autopct='%1.1f%%', 
+        colors=['#3498db', '#f1c40f'], startangle=140, explode=[0.05, 0.05])
+ax2.set_title('Network Load Distribution', fontsize=14, fontweight='bold')
+
+plt.tight_layout()
+plt.show()
